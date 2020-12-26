@@ -6,12 +6,18 @@
 //
 
 import UIKit
+import Photos
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController,
+                      UIImagePickerControllerDelegate,
+                      UINavigationControllerDelegate
+{
+  var checkPermission = CheckPermisson()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    
+    checkPermission.checkCamera()
   }
 
   // アルバム
