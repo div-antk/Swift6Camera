@@ -26,10 +26,22 @@ class ViewController: UIViewController,
   
   // カメラ
   @IBAction func camera(_ sender: Any) {
+    
   }
   
   // シェアボタン
   @IBAction func share(_ sender: Any) {
+  }
+  
+  // カメラかアルバムを立ち上げるメソッド
+  func createImagePicker(sourceType:UIImagePickerController.SourceType)
+  {
+    // インスタンスの作成
+    let cameraPicker = UIImagePickerController()
+    cameraPicker.sourceType = sourceType
+    cameraPicker.delegate = self
+    cameraPicker.allowsEditing = true
+    self.present(cameraPicker, animated: true, completion: nil)
   }
   
 }
