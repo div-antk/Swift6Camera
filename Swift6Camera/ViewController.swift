@@ -14,6 +14,17 @@ class ViewController: UIViewController {
     // Do any additional setup after loading the view.
   }
 
-
+  // アルバム
+  @IBAction func album(_ sender: Any) {
+  }
+  
+  // カメラ
+  @IBAction func camera(_ sender: Any) {
+  }
+  
+  // シェアボタン
+  @IBAction func share(_ sender: Any) {
+  }
+  
 }
 
