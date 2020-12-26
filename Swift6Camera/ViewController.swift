@@ -14,6 +14,8 @@ class ViewController: UIViewController,
 {
   var checkPermission = CheckPermisson()
   
+  @IBOutlet weak var backImageView: UIImageView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -50,5 +52,23 @@ class ViewController: UIViewController,
     self.present(cameraPicker, animated: true, completion: nil)
   }
   
+  // カメラかアルバムがキャンセルされたとき
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    
+    // 選択されたものを閉じるという処理
+    picker.dismiss(animated: true, completion: nil)
+  }
+  
+  // エディットが終わったあとのデータを受け取る
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    
+    if let pickerImage = info[.editedImage] as? UIImage {
+      
+      backImageView.image = pickerImage
+      
+      // 選択されたものを閉じるという処理
+      picker.dismiss(animated: true, completion: nil)
+    }
+  }
 }
 
