@@ -22,11 +22,17 @@ class ViewController: UIViewController,
 
   // アルバム
   @IBAction func album(_ sender: Any) {
+    // createImagePickerにソースタイプ（アルバム）を渡す
+    let sourceType:UIImagePickerController.SourceType = .photoLibrary
+    createImagePicker(sourceType: sourceType)
   }
   
   // カメラ
   @IBAction func camera(_ sender: Any) {
     
+    // createImagePickerにソースタイプ（カメラ）を渡す
+    let sourceType:UIImagePickerController.SourceType = .camera
+    createImagePicker(sourceType: sourceType)
   }
   
   // シェアボタン
