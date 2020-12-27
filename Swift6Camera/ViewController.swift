@@ -39,6 +39,17 @@ class ViewController: UIViewController,
   
   // シェアボタン
   @IBAction func share(_ sender: Any) {
+    
+    // ここの文章と同時にSNSサービスなどにシェアされる
+    let text = "#サービス名"
+    // シェアする画像をjpeg形式で圧縮。圧縮率は任意。かけるほど画像は荒くなるが処理が早くなる
+    let image = backImageView.image?.jpegData(compressionQuality: 0.5)
+    // シェアするものをitemとして定義。型を訊かれるが何型でもないのでAny
+    let item = [text,image as Any]
+    // シェアボタンを押したときの画面遷移（下から出てくる画面）の設定
+    let activitiyVC = UIActivityViewController(activityItems: item, applicationActivities: nil)
+    // 画面遷移
+    self.present(activitiyVC, animated: true, completion: nil)
   }
   
   // カメラかアルバムを立ち上げるメソッド
@@ -59,7 +70,7 @@ class ViewController: UIViewController,
     picker.dismiss(animated: true, completion: nil)
   }
   
-  // エディットが終わったあとのデータを受け取る
+  // editしてchooseが押されたときの処理
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     
     if let pickerImage = info[.editedImage] as? UIImage {
